@@ -23,22 +23,16 @@ public class InterestActivity extends AppCompatActivity{
 
         lstInterest = new ArrayList<>();
 
-        lstInterest.add(new Interest("MotoCross", R.drawable.motocross_tn));
-        lstInterest.add(new Interest("Pool", R.drawable.pool_tn));
-        lstInterest.add(new Interest("MotoCross", R.drawable.motocross_tn));
-        lstInterest.add(new Interest("Pool", R.drawable.pool_tn));
-        lstInterest.add(new Interest("MotoCross", R.drawable.motocross_tn));
-        lstInterest.add(new Interest("Pool", R.drawable.pool_tn));
-        lstInterest.add(new Interest("MotoCross", R.drawable.motocross_tn));
-        lstInterest.add(new Interest("Pool", R.drawable.pool_tn));
-        lstInterest.add(new Interest("MotoCross", R.drawable.motocross_tn));
-        lstInterest.add(new Interest("Pool", R.drawable.pool_tn));
-        lstInterest.add(new Interest("MotoCross", R.drawable.motocross_tn));
-        lstInterest.add(new Interest("Pool", R.drawable.pool_tn));
-        lstInterest.add(new Interest("MotoCross", R.drawable.motocross_tn));
-        lstInterest.add(new Interest("Pool", R.drawable.pool_tn));
-        lstInterest.add(new Interest("MotoCross", R.drawable.motocross_tn));
-        lstInterest.add(new Interest("Pool", R.drawable.pool_tn));
+        lstInterest.add(new Interest("Camping", R.drawable.camping_tn));
+        lstInterest.add(new Interest("Kayaking", R.drawable.kayaking_tn));
+        lstInterest.add(new Interest("Camping", R.drawable.camping_tn));
+        lstInterest.add(new Interest("Kayaking", R.drawable.kayaking_tn));
+        lstInterest.add(new Interest("Camping", R.drawable.camping_tn));
+        lstInterest.add(new Interest("Kayaking", R.drawable.kayaking_tn));
+        lstInterest.add(new Interest("Camping", R.drawable.camping_tn));
+        lstInterest.add(new Interest("Kayaking", R.drawable.kayaking_tn));
+        lstInterest.add(new Interest("Camping", R.drawable.camping_tn));
+        lstInterest.add(new Interest("Kayaking", R.drawable.kayaking_tn));
 
         RecyclerView interestRv = (RecyclerView) findViewById(R.id.interest_recyclerview_id);
         RecyclerViewAdapter interestAdapter = new RecyclerViewAdapter(this, lstInterest);

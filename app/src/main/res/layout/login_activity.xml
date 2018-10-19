@@ -82,12 +82,12 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="wrap_content"
+        android:layout_width="241dp"
         android:layout_height="53dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:background="@drawable/gradiant_button"
         android:fontFamily="@font/roboto_slab_thin"
         android:text="Log In"
@@ -117,12 +117,12 @@
 
     <Button
         android:id="@+id/btnCrtAcount"
-        android:layout_width="wrap_content"
-        android:layout_height="62dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_width="237dp"
+        android:layout_height="53dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:background="@drawable/rounded_button"
         android:fontFamily="@font/roboto_slab_thin"
         android:text="Create an account?"
