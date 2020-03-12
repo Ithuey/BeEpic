@@ -78,6 +78,7 @@
                         android:fontFamily="sans-serif-light"
                         android:paddingLeft="15dp"
                         android:paddingRight="15dp"
+                        android:singleLine="true"
                         android:textColor="@color/white"
                         android:textSize="15sp" />
 
@@ -107,6 +108,8 @@
                         android:fontFamily="sans-serif-light"
                         android:paddingLeft="15dp"
                         android:paddingRight="15dp"
+                        android:password="true"
+                        android:singleLine="true"
                         android:textColor="@color/white"
                         android:textSize="15sp" />
 

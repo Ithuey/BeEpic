@@ -9,13 +9,13 @@
 
 
     <Button
-        android:id="@+id/btn_user_change"
+        android:id="@+id/btn_user_setting"
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="4dp"
         android:backgroundTint="@color/colorPrimaryDark"
-        android:text="User"
+        android:text="Edit User Info"
         android:textAlignment="viewStart"
         android:textColor="@android:color/white"
         android:textStyle="bold"

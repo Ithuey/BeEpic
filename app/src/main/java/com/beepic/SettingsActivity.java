@@ -6,8 +6,10 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.beepic.Profile.EditProfile;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -19,6 +21,7 @@ public class SettingsActivity extends AppCompatActivity{
     private FirebaseAuth.AuthStateListener mAuthListener;
 
     private Button mSignOut;
+    private Button mUserSetting;
 
 
     @Override
@@ -27,6 +30,7 @@ public class SettingsActivity extends AppCompatActivity{
         setContentView(R.layout.settings_activity);
 
         mSignOut = findViewById(R.id.btn_logout);
+        mUserSetting = findViewById(R.id.btn_user_setting);
 
         setupFirebaseListener();
 
@@ -37,6 +41,15 @@ public class SettingsActivity extends AppCompatActivity{
             }
         });
 
+
+        //Button button = findViewById(R.id.btn_CrtAccount);
+        mUserSetting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SettingsActivity.this, EditProfile.class);
+                startActivity(intent);
+            }
+        });
 
     }
     /*

@@ -6,16 +6,14 @@ public class User {
     private String user_id;
     private String email;
     private String username;
-    private String lng;
-    private String lat;
 
 
-    public User(String user_id, String email, String username, String lng, String lat) {
+
+    public User(String user_id, String email, String username) {
         this.user_id = user_id;
         this.email = email;
         this.username = username;
-        this.lng = lng;
-        this.lat = lat;
+
     }
 
     public User() {
@@ -46,21 +44,7 @@ public class User {
         this.username = username;
     }
 
-    public String getLng() {
-        return lng;
-    }
 
-    public void setLng(String lng) {
-        this.lng = lng;
-    }
-
-    public String getLat() {
-        return lat;
-    }
-
-    public void setLat(String lat) {
-        this.lat = lat;
-    }
 
     @Override
     public String toString() {
@@ -68,8 +52,7 @@ public class User {
                 "user_id='" + user_id + '\'' +
                 ", email='" + email + '\'' +
                 ", username='" + username + '\'' +
-                ", lng='" + lng + '\'' +
-                ", lat='" + lat + '\'' +
+
                 '}';
     }
 }

@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "60123096144",
+    "firebase_url": "https://be-epic.firebaseio.com",
+    "project_id": "be-epic",
+    "storage_bucket": "be-epic.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:60123096144:android:f984378d641a6e58",
+        "android_client_info": {
+          "package_name": "com.beepic"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "60123096144-p3diq0hc6lbq2hndbe0lifc1hugrotap.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.beepic",
+            "certificate_hash": "bfc036613915c478f2b8793e38441d513bea34ce"
+          }
+        },
+        {
+          "client_id": "60123096144-ajgegah62clpglkiohnld6lad0m9vp76.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMJdr31bhSRMYhe_XOt-RvhlXQK9AvB3k"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "60123096144-ajgegah62clpglkiohnld6lad0m9vp76.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

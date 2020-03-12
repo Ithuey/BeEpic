@@ -14,8 +14,15 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.beepic.Utils.FirebaseMethods;
+import com.beepic.models.User;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 public class SignUpActivity extends AppCompatActivity{
 
@@ -33,6 +40,10 @@ public class SignUpActivity extends AppCompatActivity{
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private FirebaseMethods firebaseMethods;
+    private FirebaseDatabase mFirebaseDatabase;
+    private DatabaseReference mRef;
+
+    private String append = "";
 
 
         @Override
@@ -117,8 +128,54 @@ public class SignUpActivity extends AppCompatActivity{
         `````````````````````````````````````firebase```````````````````````````````````````````````
         */
 
+    /**
+     * check is @parm username already exist in the database.
+     * @param username
+     */
+    private void checkIfUserNameExists(final String username) {
+        Log.d(TAG, "checkIfUserNameExists: checking " + username + " already exist.");
+
+        DatabaseReference reference  = FirebaseDatabase.getInstance().getReference();
+        Query query = reference
+                .child(getString(R.string.dbname_user))
+                .orderByChild(getString(R.string.field_username))
+                .equalTo(username);
+
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                for(DataSnapshot singleSnapshot: dataSnapshot.getChildren()){
+                    if(singleSnapshot.exists()) {
+                        Log.d(TAG, "checkIfUserNameExists: FOUND A MATCH " + singleSnapshot.getValue(User.class).getUsername());
+                        append = mRef.push().getKey().substring(3,10);
+                        Log.d(TAG, "onDataChange: username already exist. Appending random string to name: " + append);
+                    }
+                }
+
+                String mUsername = "";
+                mUsername = username + append;
+
+
+                //add new user to the database
+                firebaseMethods.addNewUser(email, mUsername, "");
+
+                Toast.makeText(mContext, "Signup successful. Sending verification email.", Toast.LENGTH_SHORT).show();
+
+                mAuth.signOut();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
+
         private void setupFirebaseAuth(){
             mAuth = FirebaseAuth.getInstance();
+            mFirebaseDatabase = FirebaseDatabase.getInstance();
+            mRef = mFirebaseDatabase.getReference();
 
             mAuthListener = new FirebaseAuth.AuthStateListener() {
                 @Override
@@ -126,7 +183,22 @@ public class SignUpActivity extends AppCompatActivity{
                     FirebaseUser user = firebaseAuth.getCurrentUser();
                     if (user != null){
                         //user is signed in
-                        Log.d(TAG, "onAuthStateChanged: signed_in" + user.getUid());
+                        Log.d(TAG, "onAuthStateChanged: signed_in " + user.getUid());
+
+                        mRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange( DataSnapshot dataSnapshot) {
+                                checkIfUserNameExists(username);
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                            }
+                        });
+
+
+                        finish();
 
                     }else {
                         //user is signed out
